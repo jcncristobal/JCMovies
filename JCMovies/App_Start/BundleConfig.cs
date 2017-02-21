@@ -24,7 +24,7 @@ namespace JCMovies
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/flatlybootstrap.css",
                       "~/Content/site.css"));
         }
     }

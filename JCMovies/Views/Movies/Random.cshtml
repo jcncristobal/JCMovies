@@ -1,0 +1,35 @@
+﻿@*
+    @model JCMovies.Models.Movie
+*@
+@model JCMovies.ViewModels.RandomMovieViewModel
+
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@{
+    var classname = Model.Customers.Count > 2 ? "popular" : null;
+}
+
+<h2 class="@classname">@Model.Movie.name</h2>
+
+
+
+@if (Model.Customers.Count == 0)
+{
+    <p>NO Customers</p>
+}
+else
+{
+    <p>Customer Names</p>
+    <ul>
+        @foreach (var customer in Model.Customers)
+        {
+            <li>@customer.name</li>
+        }
+    </ul>
+
+}
