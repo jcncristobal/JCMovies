@@ -13,6 +13,8 @@ namespace JCMovies
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            
+
             routes.MapRoute(
                 "moviesByReleaseDate", "movies/released/{year}/{month}",
                 new { controller = "Movies", action = "ByReleaseDate" },

@@ -1,0 +1,23 @@
+﻿
+@model IEnumerable<JCMovies.Models.Customer>
+
+@{
+    ViewBag.Title = "Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customers</h2>
+@if (!Model.Any())
+{
+    <p>No Customers</p>
+}
+else
+{
+    <ul>
+        @foreach (var customer in Model)
+        {
+            <li>@customer.name</li>
+        }
+    </ul>
+}
+
