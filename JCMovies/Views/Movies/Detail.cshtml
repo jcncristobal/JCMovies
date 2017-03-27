@@ -1,0 +1,14 @@
+﻿@using JCMovies.Models
+@model Movie
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detail</h2>
+<p>Movie Title: @Model.name</p>
+<p>Genre: @Model.genre</p>
+<p>Release Date: @Model.ReleaseDate.ToString("yy-mmm-dd ddd, MMMM dd,yyyy")</p>
+<p>Date Added: @Model.DateAdded.ToString("yy-mmm-dd ddd, MMMM dd,yyyy")</p>
+<p>Number in Stock: @Model.Stocks</p>
+

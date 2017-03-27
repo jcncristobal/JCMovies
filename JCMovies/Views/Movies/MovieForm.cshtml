@@ -1,0 +1,65 @@
+﻿@model JCMovies.Models.Movie 
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movie Form</h2>
+
+<!--create form with wrapper-->
+
+@using(@Html.BeginForm("Save","Movies")){
+
+    <div class="form-group">
+    @Html.LabelFor(c => c.name)
+        @Html.TextBoxFor(c => c.name, new {@class= "form-control" })
+        @Html.ValidationMessageFor(c=>c.name)
+    </div>
+
+    //Genre
+    <div class="form-group">
+        @Html.LabelFor(c => c.genre)
+        @Html.TextBoxFor(c => c.genre, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.genre)
+    </div>
+
+    //Type
+    <div class="form-group">
+        @Html.LabelFor(c => c.type)
+        @Html.TextBoxFor(c => c.type, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.type)
+    </div>
+
+   //Release Date
+    <div class="form-group">
+        @Html.LabelFor(c => c.ReleaseDate )
+        @Html.TextBoxFor(c => c.ReleaseDate, "{0:d MMM yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.ReleaseDate)
+    </div>
+
+    //Date Added
+        <div class="form-group">
+            @Html.LabelFor(c => c.DateAdded )
+            @Html.TextBoxFor(c => c.DateAdded, "{0:d MMM yyyy}", new { @class = "form-control" })
+            @Html.ValidationMessageFor(c => c.DateAdded)
+        </div>
+
+          //Stocks
+    <div class="form-group">
+        @Html.LabelFor(c => c.Stocks )
+        @Html.TextBoxFor(c => c.Stocks , new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Stocks)
+    </div>
+
+    @Html.HiddenFor(c=>c.ID)
+
+    <button type="submit" class="btn btn-primary">Save</button>
+
+}
+
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

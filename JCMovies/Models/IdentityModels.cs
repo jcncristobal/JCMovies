@@ -1,4 +1,6 @@
 ﻿using System.Data.Entity;
+using System.Reflection.Emit;
+using System.Security.AccessControl;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -22,6 +24,11 @@ namespace JCMovies.Models
     {
         public DbSet <Customer> Customers  { get; set; }
 
+        //public DbSet <Movie> Movies
+        public DbSet <Movie> Movies { get; set; }
+        public DbSet <MembershipType> MembershipTypes { get; set; }
+
+        public DbSet <Rental> Rentals { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

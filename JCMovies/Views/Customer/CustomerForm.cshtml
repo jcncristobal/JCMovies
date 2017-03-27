@@ -1,0 +1,69 @@
+﻿@model JCMovies.ViewModels.CustomerFormViewModel
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Customer</h2>
+
+@using (@Html.BeginForm("Save", "Customer"))
+{
+
+    @Html.ValidationSummary( );
+
+    <div class="form-group">
+        @Html.LabelFor(c=>c.Customer.name)
+        
+        <!-- with additional atributes using anonymous list--> 
+        @Html.TextBoxFor(c=>c.Customer.name, new
+        {
+            @class="form-control"
+        }) 
+        @Html.ValidationMessageFor(c=> c.Customer.name)
+
+
+    </div>
+
+
+    <div class="form-group">
+        
+        <label for="DateOfBirth">Date of Birth</label>
+        <!-- with additional atributes using anonymous list-->
+        @Html.TextBoxFor(c => c.Customer.DateOfBirth,"{0:d MMM yyyy}", new {@class = "form-control"})
+        @Html.ValidationMessageFor(c=> c.Customer.DateOfBirth)
+    </div>
+
+
+
+    <div class="form-group">
+
+        
+        <!-- with additional atributes using anonymous list-->
+        @Html.CheckBoxFor(c => c.Customer.IsSubscribedToNewsLetter)
+        Subscribed to News Letter?
+        
+
+    </div>
+
+
+    <div class="form-group">
+        
+        
+        @Html.LabelFor(c => c.Customer.MembershipTypeId)
+        <!-- with additional atributes using anonymous list-->
+        @Html.DropDownListFor(c => c.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "Select a membership type ", new { @class = "form-control" })
+
+    </div>
+    @Html.HiddenFor(c=>c.Customer.id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+
+    
+
+
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

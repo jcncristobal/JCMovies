@@ -1,0 +1,41 @@
+﻿@using System.Web.Razor.Parser
+@using JCMovies.Models
+
+@model IEnumerable<JCMovies.Models.Movie>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movie List</h2>
+
+<button type="submit" class="btn btn-primary"
+onclick="location.href='@Url.Action("New","Movies")'"
+>New</button>
+
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Movie</th>
+            <th>Genre</th>
+          
+        </tr>
+    </thead>
+<tbody>
+@foreach (var movie in Model)
+{
+    <tr>
+        <td>
+            @*<p>@Html.ActionLink(@movie.name, "Edit", "Movies", new { id = movie.ID, genre = movie.genre, releasedate = movie.ReleaseDate, dateAdded = movie.DateAdded, stock = movie.Stocks }, null)</p>*@
+            <p>@Html.ActionLink(@movie.name, "Edit", "Movies", new { id = movie.ID, genre = movie.genre, releasedate = movie.ReleaseDate, dateAdded = movie.DateAdded, stock = movie.Stocks }, null)</p>
+            
+        </td>
+        <td>
+            <p>@movie.genre</p>
+        </td>
+   </tr>
+         
+}
+</tbody>
+</table>
